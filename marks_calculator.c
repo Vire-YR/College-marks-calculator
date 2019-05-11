@@ -76,8 +76,7 @@ int main(){
             continue;
         }
 
-    user[i].theory = user[i].cat[0] + user[i].cat[1] + user[i].fat + user[i].da;
-    user[i].total=user[i].addLearn;
+    user[i].theory = user[i].cat[0] + user[i].cat[1] + user[i].fat + user[i].da + user[i].addLearn;
     if(user[i].credits == 4)
     {
         user[i].lab = user[i].labDa + user[i].labFat;
@@ -85,10 +84,13 @@ int main(){
     }
 
     else
-        user[i].total+=user[i].theory;
+        user[i].total=user[i].theory;
+
+    if(user[i].total>100.0)
+        user[i].total=100;
     }
 
-    printf("\n\n\tSUBJECT_NAME\tCREDITS\tTOTAL MARKS\n");
+    printf("\n\n\tSUBJECT\tCREDITS\tTOTAL MARKS\n");
     for(int i=0;i<n;i++)
         printf("\t%s\t%d\t%f\n",user[i].name,user[i].credits,user[i].total);
 
